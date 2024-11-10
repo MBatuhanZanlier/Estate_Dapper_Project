@@ -1,0 +1,19 @@
+﻿@model CreateServiceDto
+@{
+    ViewData["Title"] = "CreateService";
+    Layout = "~/Areas/EstateAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Icon</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <br />
+        <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Ana Başlık</label>
+    <input type="text" asp-for="SubTitle" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Servis Ekle</button>
+</form>
+
