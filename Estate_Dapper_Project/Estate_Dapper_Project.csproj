@@ -17,4 +17,17 @@
     <Folder Include="Areas\EstateAdmin\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\royalestate-master\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\css\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\css\css\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\fonts\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\images\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\js\.DS_Store" />
+    <None Include="wwwroot\royalestate-master\scss\.DS_Store" />
+  </ItemGroup>
+
 </Project>

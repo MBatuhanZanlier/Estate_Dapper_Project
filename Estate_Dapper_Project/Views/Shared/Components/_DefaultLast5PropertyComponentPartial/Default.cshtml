@@ -1,0 +1,47 @@
+﻿@model List<ResultLast5Property>
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Special Offers</span>
+                <h2 class="mb-4">Most Recommended Properties</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          
+                @foreach (var item in Model)
+                {
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="properties">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.CoverImage);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <span class="status sale">@item.Type</span>
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">@item.ProductTitle</a></h3>
+                                    <p>@item.CategoryName</p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">@item.Price</span>
+                                </div>
+                            </div>
+                            <p>@item.Subtitle</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="flaticon-selection"></i> 250sqft</span>
+                                <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
+                                <span><i class="flaticon-bed"></i> 4</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+</section>

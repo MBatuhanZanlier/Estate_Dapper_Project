@@ -1,0 +1,14 @@
+﻿@model UpdateLocationDto
+@{
+    ViewData["Title"] = "UpdateLocation";
+    Layout = "~/Areas/EstateAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post"> 
+    <input type="hidden" asp-for="LocationID"; />
+    <label>Lokasyon Adı</label>
+    <input type="text" asp-for="LocationName" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Kategori Ekle</button>
+</form>
+

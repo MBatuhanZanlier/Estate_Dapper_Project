@@ -1,0 +1,57 @@
+﻿@model List<ResultPropertyDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/EstateAdmin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<style>
+    img {
+        border-radius: 50%
+    }
+</style>
+<div class="card-body">
+    <h4 class="card-title">Basic Table</h4>
+    <div class="table-responsive">
+        <table class="table header-border">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Resim</th>
+                    <th scope="col">İlan Başlığı</th>
+                    <th scope="col">Fiyatı</th>
+                    <th scope="col">Lokasyonu</th>
+                    <th scope="col">Kategorisi</th>
+                    <th scope="col">Türü</th>
+                    <th scope="col">Öne Çıkan</th>
+                    <th scope="col">Sil</th>
+                    <th scope="col">Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <th>@count</th>
+                        <td><img src="@item.CoverImage" height="50" width="50" /></td>
+                        <td>@item.ProductTitle</td>
+                        <td>@item.Price</td>
+                        <td>@item.LocationName</td>
+                        <td>@item.CategoryName</td> 
+                        <td>@item.Type</td> 
+                        <td>@(item.IsFeatured ? "aktif":"pasif")</td>
+                        <td><a href="/EstateAdmin/Property/DeleteProperty/@item.PropertyID/" class="btn btn-outline-danger">Sil</a> </td>
+                        <td><a href="/EstateAdmin/Property/UpdateProperty/@item.PropertyID/" class="btn btn-outline-success">Güncelle</a> </td>
+                        <td></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<a href="#" class="btn btn-outline-info">Yeni Kayıt Ekle</a>
+
+

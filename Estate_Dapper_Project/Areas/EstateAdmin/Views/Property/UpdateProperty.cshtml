@@ -1,0 +1,57 @@
+﻿@model GetByIdPropertyDto
+@{
+    ViewData["Title"] = "UpdateProperty";
+    Layout = "~/Areas/EstateAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post"> 
+    <input type="hidden" asp-for="PropertyID" />
+    <label>İlan Başlığı</label>
+    <input type="text" asp-for="ProductTitle" class="form-control" />
+    <br />
+    <label>İlan Ana Başlığı</label>
+    <input type="text" asp-for="Subtitle" class="form-control" />
+    <br />
+    <label>Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br />
+   @*  <label for="CategoryID">Kategori</label>
+    <select asp-for="PropertyCategoryID" class="form-control" asp-items="ViewBag.CategoryValues">
+        <option value="">Lütfen Kategori Seçiniz</option>
+    </select>
+    <br />
+    <label for="LocationID">Lokasyon</label>
+    <select asp-for="PropertyLocationID" class="form-control" asp-items="ViewBag.LocationValues">
+        <option value="">Select a Location</option>
+    </select> *@
+    <br />
+    <label>Yatak Odası Sayısı</label>
+    <input type="text" asp-for="BedCount" class="form-control" />
+    <br />
+    <label>Banyo Sayısı</label>
+    <input type="text" asp-for="BathRoom" class="form-control" />
+    <br />
+    <label>Garaj Sayısı</label>
+    <input type="text" asp-for="Garage" class="form-control" />
+    <br />
+    <label>Yapım Yılı</label>
+    <input type="text" asp-for="BuildYear" class="form-control" />
+    <br />
+    <label>Video Url</label>
+    <input type="text" asp-for="VideoEmbend" class="form-control" />
+    <br />
+    <label>Kapak Fotoğrafı</label>
+    <input type="text" asp-for="CoverImage" class="form-control" />
+    <br />
+    <label>Adress</label>
+    <input type="text" asp-for="Address" class="form-control" />
+    <br />
+    <label>Türü</label>
+    <input type="text" asp-for="Type" class="form-control" />
+    <br />
+    <label>Açıkalama</label>
+    <textarea asp-for="Description" rows="5" class="form-control"></textarea>
+    <br />
+    <button class="btn btn-outline-primary">İlanı Ekle</button>
+</form>
+

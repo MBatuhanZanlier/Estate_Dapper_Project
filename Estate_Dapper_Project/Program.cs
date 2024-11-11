@@ -1,5 +1,7 @@
 using Estate_Dapper_Project.Context;
 using Estate_Dapper_Project.Services.CategoryServices;
+using Estate_Dapper_Project.Services.LocationServices;
+using Estate_Dapper_Project.Services.PropertyServices;
 using Estate_Dapper_Project.Services.ServiceServices;
 using Estate_Dapper_Project.Services.TestimonialServices;
 
@@ -10,6 +12,8 @@ builder.Services.AddTransient<DapperContext>();
 builder.Services.AddTransient<ICategoryService,CategoryService>();
 builder.Services.AddTransient<IServiceService,ServiceService>();
 builder.Services.AddTransient<ITestimonialService,TestimonialService>();
+builder.Services.AddTransient<ILocationService,LocationService>();
+builder.Services.AddTransient<IPropertyService,PropertyService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -34,7 +38,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute(
+	endpoints.MapControllerRoute(
+	 name: "default",
+	 pattern: "{controller=Home}/{action=Index}/{id?}"); 
+
+	endpoints.MapControllerRoute(
       name: "areas",
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
