@@ -1,8 +1,11 @@
 using Estate_Dapper_Project.Context;
 using Estate_Dapper_Project.Services.CategoryServices;
+using Estate_Dapper_Project.Services.ImagePropertyServices;
 using Estate_Dapper_Project.Services.LocationServices;
 using Estate_Dapper_Project.Services.PropertyServices;
 using Estate_Dapper_Project.Services.ServiceServices;
+using Estate_Dapper_Project.Services.StatisticServices;
+using Estate_Dapper_Project.Services.TagServices;
 using Estate_Dapper_Project.Services.TestimonialServices;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,9 @@ builder.Services.AddTransient<IServiceService,ServiceService>();
 builder.Services.AddTransient<ITestimonialService,TestimonialService>();
 builder.Services.AddTransient<ILocationService,LocationService>();
 builder.Services.AddTransient<IPropertyService,PropertyService>();
+builder.Services.AddTransient<IStatisticService, StatisticService>();
+builder.Services.AddTransient<IImagePropertyService, ImagePropertyService>();
+builder.Services.AddTransient<ITagService, TagService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -1,0 +1,34 @@
+﻿@model GetByIdPropertyDto
+@{
+    ViewData["Title"] = "PropertyDetail";
+    Layout = "~/Views/Shared/_EstateLayout.cshtml";
+}
+<div class="hero-wrap" style="background-image: url('@Model.CoverImage');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="blog.html">Blog</a></span> <span>Property Single</span></p>
+                <h1 class="mb-3 bread">Property Single</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row"> 
+                    @await Component.InvokeAsync("_PropertyDetailImagelistComponentPartial",new { id = ViewBag.i })
+                    @await Component.InvokeAsync("_PropertyDetailContentsComponentPartial", new { id = ViewBag.i })
+                </div>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate">
+                @await Component.InvokeAsync("_PropertyDetailCategoryCountComponentPartial")
+                @await Component.InvokeAsync("_PropertyDetailTagComponentPartial", new { id = ViewBag.i })
+            </div>
+        </div>
+    </div>
+</section> <!-- .section -->
+
+

@@ -4,6 +4,7 @@ using Estate_Dapper_Project.Dtos.CategoryDtos;
 using Estate_Dapper_Project.Dtos.PropertDtos;
 using Newtonsoft.Json.Linq;
 using System.Net;
+using X.PagedList;
 
 namespace Estate_Dapper_Project.Services.PropertyServices
 {
@@ -54,6 +55,28 @@ namespace Estate_Dapper_Project.Services.PropertyServices
             }
         }
 
+        public async Task<List<ResultLast2Propery>> GetAllLast2Property()
+        {
+            string query = "SELECT TOP 2  PropertyID, CoverImage, Type,ProductTitle,Subtitle,Price,CategoryName FROM Property INNER JOIN Category ON Property.PropertyCategoryID = Category.CategoryID  ORDER BY PropertyID DESC";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultLast2Propery>(query);
+                return values.ToList();
+
+            }
+        }
+
+        public async Task<IPagedList<ResultPagedWithProperty>> GetAllPagedListProperty(int pageNumber, int pageSize)
+        {
+            string query = "SELECT PropertyID, CoverImage, Type,ProductTitle,Subtitle,Price,CategoryName FROM Property INNER JOIN Category ON Property.PropertyCategoryID = Category.CategoryID WHERE IsFeatured = 1 ORDER BY PropertyID DESC";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultPagedWithProperty>(query);
+                return values.ToPagedList(pageNumber, pageSize);
+
+            }
+        }
+
         public async Task<List<ResultPropertyDto>> GetAllPropertyAsync()
         {
             string query = "Select ProductTitle,Subtitle,Description,BedCount,BathRoom,Garage,BuildYear,VideoEmbend,CoverImage,Price,Address,Type,IsFeatured,CategoryName,locationName FROM Property INNER JOIN Category on Property.PropertyCategoryID=Category.CategoryID INNER JOIN Location on Property.PropertyLocationID=Location.LocationID";
@@ -67,7 +90,7 @@ namespace Estate_Dapper_Project.Services.PropertyServices
 
 		public async Task<List<ResultSliderDto>> GetAllPropertySliderAsync()
 		{
-			string query = "Select PropertyID,ProductTitle,Subtitle,CoverImage,Price,Address,LocationName From Property Inner Join Location on Property.PropertyLocationID=Location.LocationID  where IsFeatured=1";
+			string query = "Select Top 5 PropertyID,ProductTitle,Subtitle,CoverImage,Price,Address,LocationName From Property Inner Join Location on Property.PropertyLocationID=Location.LocationID  where IsFeatured=1";
 			using (var connection = _context.CreateConnection())
 			{
 				var values = await connection.QueryAsync<ResultSliderDto>(query);
@@ -103,12 +126,36 @@ namespace Estate_Dapper_Project.Services.PropertyServices
 
 		public async Task<List<ResultLast5Property>> GetLast5PropertyFeatures()
 		{
-			string query = "SELECT TOP 10  PropertyID, CoverImage, Type,ProductTitle,Subtitle,Price,CategoryName FROM Property INNER JOIN Category ON Property.PropertyCategoryID = Category.CategoryID  ORDER BY PropertyID DESC";
+			string query = "SELECT TOP 5  PropertyID, CoverImage, Type,ProductTitle,Subtitle,Price,CategoryName FROM Property INNER JOIN Category ON Property.PropertyCategoryID = Category.CategoryID  ORDER BY PropertyID DESC";
 			using (var connection = _context.CreateConnection())
 			{
 				var values = await connection.QueryAsync<ResultLast5Property>(query);
 				return values.ToList();
 
+			}
+		}
+
+        public async Task<List<ResultCategoryCount>> GetPropertyWithCategoryCount()
+        {
+            string query = "SELECT COUNT(*) AS 'CategoryCount', PropertyCategoryID, CategoryName FROM Property INNER JOIN Category ON Property.PropertyCategoryID = Category.CategoryID GROUP BY PropertyCategoryID, CategoryName";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultCategoryCount>(query);
+                return values.ToList();
+
+            }
+        }
+
+		public async Task<List<ResultProducthSearchListDto>> ResultProductWithSearchList(int propertyCategoryıd, string Type)
+		{
+			string query = "Select * From Property  where PropertyCategoryID=@categoryid and Type='@type'";
+			var parameters = new DynamicParameters();
+			parameters.Add("@categoryid", propertyCategoryıd);
+			parameters.Add("@type",Type);
+			using (var connection = _context.CreateConnection())
+			{
+				var values = await connection.QueryAsync<ResultProducthSearchListDto>(query, parameters);
+				return values.ToList();
 			}
 		}
 

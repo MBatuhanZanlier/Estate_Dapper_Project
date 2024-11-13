@@ -1,0 +1,89 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core; 
+@model IPagedList<ResultPagedWithProperty>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_EstateLayout.cshtml";
+}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row"> 
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 ftco-animate">
+                    <div class="properties">
+                        <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.CoverImage);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <span class="status sale">@item.Type</span>
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="/Property/PropertyDetail/@item.PropertyID/">@item.ProductTitle</a></h3>
+                                    <p>@item.CategoryName</p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">@item.Price</span>
+                                </div>
+                            </div>
+                            <p>@item.Subtitle</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="flaticon-selection"></i> 250sqft</span>
+                                <span class="ml-auto"><i class="flaticon-bathtub"></i> 3</span>
+                                <span><i class="flaticon-bed"></i> 4</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <!-- Geri Butonu -->
+                        <li class="previous @(!Model.HasPreviousPage ? "disabled" : "")">
+                            @if (Model.HasPreviousPage)
+                            {
+                                <a href="@Url.Action("Index", new { page = Model.PageNumber - 1, pageSize = Model.PageSize })">&lt;</a>
+                            }
+                            else
+                            {
+                                <span>&lt;</span>
+                            }
+                        </li>
+
+                        <!-- Sayfa Numaraları -->
+                        @for (int i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class=" @((i == Model.PageNumber) ? "active" : "")">
+                                <a href="@Url.Action("Index", new { page = i, pageSize = Model.PageSize })">@i</a>
+                            </li>
+                        }
+
+                        <!-- İleri Butonu -->
+                        <li class="next @(!Model.HasNextPage ? "disabled" : "")">
+                            @if (Model.HasNextPage)
+                            {
+                                <a href="@Url.Action("Index", new { page = Model.PageNumber + 1, pageSize = Model.PageSize })">&gt;</a>
+                            }
+                            else
+                            {
+                                <span>&gt;</span>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+</section>
+
+

@@ -1,0 +1,25 @@
+﻿@model GetByIdPropertyDto
+<div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
+    <h2>@Model.ProductTitle</h2>
+    <h2></h2>
+    <p class="rate mb-4">
+        <span class="loc"><a href="#"><i class="icon-map"></i>@Model.Address -@Model.LocationName</a></span>
+    </p>
+    <p>@Model.Description</p>
+    <div class="d-md-flex mt-5 mb-5">
+        <ul>
+            <li><span>Yatak Odası: </span>@Model.BedCount</li>
+            <li><span>Oturma Odası: </span>2</li>
+            <li><span>Banyo: </span>@Model.BathRoom</li>
+            <li><span>Garaj </span>@Model.Garage</li>
+            <li><span>Yapım Yılı</span>@Model.BuildYear</li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
+    <h3 class="mb-4">İlan Videosu</h3>
+    <div class="block-16">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_29vB7_lBs?si=D_1Smkc8hC0nrVwa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    @await Component.InvokeAsync("_PropertyDetailLastPropertyComponentPartial")
+</div>

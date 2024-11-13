@@ -1,5 +1,6 @@
 ﻿using Estate_Dapper_Project.Context;
 using Estate_Dapper_Project.Dtos.PropertDtos;
+using X.PagedList;
 
 
 namespace Estate_Dapper_Project.Services.PropertyServices
@@ -14,6 +15,9 @@ namespace Estate_Dapper_Project.Services.PropertyServices
         Task<List<ResultSliderDto>> GetAllPropertySliderAsync();
         Task<List<ResultPropertyFeatureDto>> GetAlltPropertyFeatures();
         Task<List<ResultLast5Property>> GetLast5PropertyFeatures();
-
-    }
+        Task<IPagedList<ResultPagedWithProperty>> GetAllPagedListProperty(int pageNumber, int pageSize);
+        Task<List<ResultLast2Propery>> GetAllLast2Property();
+        Task<List<ResultCategoryCount>> GetPropertyWithCategoryCount();
+		Task<List<ResultProducthSearchListDto>> ResultProductWithSearchList( int propertyCategoryıd, string Type);
+	}
 }

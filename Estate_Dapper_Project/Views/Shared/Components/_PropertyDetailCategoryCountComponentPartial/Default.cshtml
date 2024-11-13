@@ -1,0 +1,11 @@
+﻿@model List<ResultCategoryCount>
+<div class="sidebar-box ftco-animate"> 
+    <div class="categories">
+        <h3>Kategoriler</h3> 
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.CategoryName <span>(@item.CategoryCount)</span></a></li>
+        }
+
+    </div>
+</div>
