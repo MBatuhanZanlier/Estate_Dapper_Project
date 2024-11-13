@@ -39,8 +39,7 @@ Ellimden geldiğince X.pagedlist kütüpahesinin nasıl kullanıldığı anlatm�
 ### İlan arama
 ![Ekran Görüntüsü (209)](https://github.com/user-attachments/assets/c3a263d3-e381-44e2-8324-21cbb7359171)
 ### Hizmetler ve Öne çıkan İlanlar
-![Ekran Görüntüsü (211)](https://github.com/user-attachments/assets/a0d3a111-375c-44de-bdd7-5a49cd663076) 
-
+![Ekran Görüntüsü (219)](https://github.com/user-attachments/assets/fc4d6ef4-9e97-4f5b-a2f6-68dec7f0b12e)
 ### Son Eklenen 5 İlanlar 
 ![Ekran Görüntüsü (211)](https://github.com/user-attachments/assets/0d8d1022-58f7-4814-a04f-ba96ad64c46b)
 ###  İslatistik ve Referanslar
