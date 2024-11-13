@@ -9,6 +9,11 @@ Bu proje mini bir proje olup .Net Core 8.0 ile  *Dapper ORM*  kullanalarak geli�
 2. .NET CORE 8.0
 3. MSSQL
 4. X.PAGEDLİST
+## X.PagedList Kütüpahenin avantajları nelerdir? 
+X.PagedList kütüphanesi, ASP.NET MVC ve ASP.NET Core projelerinde veritabanındaki büyük veri setlerini sayfalayarak göstermek için kullanılan güçlü bir araçtır. Bu kütüphane, sayfalama (pagination) işlemlerini kolaylaştırır ve birkaç önemli fayda sağlar.   
+- Veritabanı Optimizasyonu: Büyük veri setlerinde verilerin tamamını almak yerine, sadece mevcut sayfada gösterilmesi gereken kısmı çekebilirsiniz. Bu, performansı büyük ölçüde iyileştirir.
+- Daha Az Bellek Kullanımı:Bellek Yönetimi: Veritabanından yalnızca o sayfaya ait veriler çekildiğinden, büyük veri setlerinde bellekte daha az yer kaplar. Bu, özellik sınırlı kaynaklara sahip makinelerde önemli bir avantajdır.
+- X.PagedList kütüphanesi, verilerinizi sayfalayarak kullanıcıya gösterirken performansı artırır, bellek kullanımını azaltır, kolayca sayfalama kontrolleri eklemenizi sağlar ve geliştiriciye iş yükü azaltır. Bu kütüphane özellikle büyük veri setlerini yönetirken son derece kullanışlıdır.
 ## Dapper ile PagedList Nasıl Yapılır. 
 1.Öncelikle veritabanınızda dönecek olan model veya Dto sınıfını oluşturun.  
 ![Ekran Görüntüsü (221)](https://github.com/user-attachments/assets/a29537f6-9960-45e2-8604-dd763741991c)
